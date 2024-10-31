@@ -12,3 +12,7 @@ async fn main() {
     // with this we can make the main function async and simply await the async functions
     hello().await;
 }
+
+// if there is a small async block in a gaint sync function, we can use executor to run the async block and leave the rest of the function sync
+// but if the whole function is async, we can use tokio::main attribute to make the whole function async
+// so rust, it give us building blocks and its up to us how we want to use them
