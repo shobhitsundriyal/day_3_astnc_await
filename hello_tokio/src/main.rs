@@ -4,17 +4,9 @@ async fn hello() {
     println!("hello, world");
 }
 
-fn main() {
-    let tokio_runtime = runtime::Builder::new_current_thread()
-        .enable_all()
-        .build()
-        .unwrap();
-
-    let tokio_runtime = runtime::Builder::new_multi_thread()
-        .enable_all()
-        .worker_threads(4)
-        .build()
-        .unwrap(); //multi-threaded runtime
-
-    tokio_runtime.block_on(hello()); // used tokio_runtime to run the future
+// ok so if we know that our whole program is async, we can use tokio's simple syntax, eg: in case of a server, whole server is async
+# [tokio::main]
+async fn main() {
+    // with this we can make the main function async and simply await the async functions
+    hello().await;
 }
