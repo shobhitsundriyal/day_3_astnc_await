@@ -6,4 +6,4 @@ edition = "2021"
 [dependencies]
 
 [workspace]
-members = ["hello_async"]
+members = ["hello_async", "hello_tokio"]
